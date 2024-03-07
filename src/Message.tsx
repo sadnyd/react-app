@@ -1,5 +1,6 @@
 function Message() {
-    return <h1>Hello World test</h1>;
+    const name = 'Devayan';
+    return <h1>Hey there this is {name}</h1>;
 }
 
 export default Message;
