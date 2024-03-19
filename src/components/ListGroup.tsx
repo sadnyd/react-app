@@ -3,9 +3,10 @@ import { useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   //items = [];
   return (
@@ -18,11 +19,12 @@ function ListGroup({ items, heading }: Props) {
             className={
               selectedIndex === index
                 ? "list-group-item active"
-                : "list-group-itme"
+                : "list-group-item"
             }
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
