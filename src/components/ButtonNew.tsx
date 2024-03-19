@@ -1,20 +1,16 @@
 import { useState } from "react";
+import { ReactNode } from "react";
 interface Props {
-  btText: string;
+  children: ReactNode;
+  onClick: () => void;
+  color?: string;
 }
 
-function ButtonNew({ btText }: Props) {
-  const [count, setCount] = useState(-1);
+function ButtonNew({ children, onClick, color }: Props) {
   return (
     <>
-      <button
-        type="button"
-        className="btn btn-info"
-        onClick={() => {
-          setCount(+1);
-        }}
-      >
-        {btText} {count}
+      <button type="button" className={"btn btn-" + color} onClick={onClick}>
+        {children}
       </button>
     </>
   );

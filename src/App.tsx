@@ -16,9 +16,12 @@ function App() {
   //     />
   //   </div>
   // );
+  let text = "Hello";
   return (
     <div>
-      <ButtonNew btText="hello"></ButtonNew>
+      <ButtonNew color="secondary" onClick={() => console.log("clicked")}>
+        {text}
+      </ButtonNew>
     </div>
   );
 }
