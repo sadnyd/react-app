@@ -1,7 +1,6 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
-import ButtonNew from "./components/ButtonNew";
-
+import Button from "./components/ButtonNew";
 function App() {
   // let items = ["tokyo", "paris", "london", "san francisco"];
   // const handleSelectItem = (item: string) => {
@@ -16,12 +15,15 @@ function App() {
   //     />
   //   </div>
   // );
-  let text = "Hello";
+  let text = "TEST";
+  const handleClick = () => {
+    console.log("Clicked btn");
+  };
   return (
     <div>
-      <ButtonNew color="secondary" onClick={() => console.log("clicked")}>
+      <Button color="danger" onClick={handleClick}>
         {text}
-      </ButtonNew>
+      </Button>
     </div>
   );
 }

@@ -1,19 +1,17 @@
-import { useState } from "react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
+
 interface Props {
   children: ReactNode;
   onClick: () => void;
-  color?: string;
+  color?: "primary" | "secondary" | "info" | "danger";
 }
 
-function ButtonNew({ children, onClick, color }: Props) {
+const Button = ({ children, onClick, color = "primary" }: Props) => {
   return (
-    <>
-      <button type="button" className={"btn btn-" + color} onClick={onClick}>
-        {children}
-      </button>
-    </>
+    <button className={"btn btn-" + color} onClick={onClick}>
+      {children}
+    </button>
   );
-}
+};
 
-export default ButtonNew;
+export default Button;
