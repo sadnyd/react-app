@@ -28,14 +28,12 @@ function App() {
     setAlertVisible(false);
   };
 
-  const r = document.getElementById("123");
-  console.log({ r });
   useEffect(() => {
     console.log("EFFECT RUN BECAUSE ALERT CHANGES");
   }, [alertVisible]);
 
   return (
-    <div id="123">
+    <div>
       {alertVisible ? <Alert onClick={dismissAlert}></Alert> : null}
       <Button color="danger" onClick={handleClick}>
         {text}
