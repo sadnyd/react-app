@@ -1,6 +1,6 @@
 import Alert from "./components/Alert";
 import Button from "./components/ButtonNew";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 function App() {
   // let items = ["tokyo", "paris", "london", "san francisco"];
   // const handleSelectItem = (item: string) => {
@@ -18,6 +18,8 @@ function App() {
   let text = "TEST";
 
   let [alertVisible, setAlertVisible] = useState(false);
+  const container = useRef<HTMLDivElement | null>(null);
+
   const handleClick = () => {
     setAlertVisible(true);
   };
@@ -25,9 +27,16 @@ function App() {
   const dismissAlert = () => {
     setAlertVisible(false);
   };
+
+  const r = document.getElementById("123");
+  console.log({ r });
+  useEffect(() => {
+    console.log("EFFECT RUN BECAUSE ALERT CHANGES");
+  }, [alertVisible]);
+
   return (
-    <div>
-      {alertVisible && <Alert onClick={dismissAlert}></Alert>}
+    <div id="123">
+      {alertVisible ? <Alert onClick={dismissAlert}></Alert> : null}
       <Button color="danger" onClick={handleClick}>
         {text}
       </Button>
